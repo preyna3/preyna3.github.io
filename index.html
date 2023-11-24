@@ -43,37 +43,14 @@ d.setHours(x);
 d.setMinutes(y);
 
 Unit0 = 'Start :__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
-<!-- Calculate the time for units -->
-d.setMinutes(d.getMinutes() + 1);
-Unit1 = 'Unit 1:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() 
-d.setMinutes(d.getMinutes() + 7);
-Unit1 = Unit1 + ' -- ' + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
-d.setMinutes(d.getMinutes() + 7);
-Unit1 = Unit1 + ' -- ' + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes()+ '<br>';
-
-<!-- Calculate the time for units -->
-d.setMinutes(d.getMinutes() + 1);
-Unit2 = 'Unit 2:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() 
-d.setMinutes(d.getMinutes() + 7);
-Unit2 = Unit2 + ' -- ' + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
-d.setMinutes(d.getMinutes() + 7);
-Unit2 = Unit2 + ' -- ' + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes()+ '<br>';
-
-<!-- Calculate the time for units -->
-d.setMinutes(d.getMinutes() + 1);
-Unit3 = 'Unit 3:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() 
-d.setMinutes(d.getMinutes() + 7);
-Unit3 = Unit3 + ' -- ' + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
-d.setMinutes(d.getMinutes() + 7);
-Unit3 = Unit3 + ' -- ' + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes()+ '<br>';
-
-<!-- Calculate the time for units -->
-d.setMinutes(d.getMinutes() + 1);
-Unit4 = 'Unit 4:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() 
-d.setMinutes(d.getMinutes() + 7);
-Unit4 = Unit4 + ' -- ' + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
-d.setMinutes(d.getMinutes() + 7);
-Unit4 = Unit4 + ' -- ' + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes()+ '<br>';
+d.setMinutes(d.getMinutes() + 8);
+Unit1 = 'Unit 1:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+d.setMinutes(d.getMinutes() + 15);
+Unit2 = 'Unit 2:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+d.setMinutes(d.getMinutes() + 15);
+Unit3 = 'Unit 3:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+d.setMinutes(d.getMinutes() + 15);
+Unit4 = 'Unit 4:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
 
 document.getElementById('Units').innerHTML += ('Name:');
 document.getElementById('Units').innerHTML += '<label><input type="text"></label>';
