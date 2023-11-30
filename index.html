@@ -5,11 +5,15 @@
 <head>
 <meta name="description" content="This webpage is for therapist to calculate the units of service calculated every 15 minutes from the start of the session">
   <meta name="keywords" content="HTML, CSS, JavaScript">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Pedro Reyna">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1129011458103162"
      crossorigin="anonymous"></script>
-
+<style>
+body   {background-color: powderblue; }
+h1     {color: blue; text-align: center;}
+button {color: blue;}
+</style>
 </head>
 <body>
 
@@ -17,19 +21,21 @@
 Therapy Units<br>
 Calculator
 </h1>
-<h4>calculate the start of units of service</h4>
+<h4>Calculate the start of units of service</h4>
 
-<button onclick="CurrentTime()">Get Current Time</button>
+<button style="width: 80%;" onclick="CurrentTime()">Get Current Time</button>
 <br>
-<input min=1 max=12 type="number" id="starttime1"/>Hours
+<p style="text-align=left;">
+<input style="width: 30%;" min=1 max=12 type="number" id="starttime1"/>   Hours    
 <br>
-<input min=0 max=60 type="number" id="starttime2"/>Minutes
+<input style="width: 30%;" min=0 max=60 type="number" id="starttime2"/>    Minutes
 <br>
+</p>
 
-<button onclick="showtime()">Get Units</button>
-<button onclick="reloadPage()">Clear</button>
+<button style="width: 40%;" onclick="showtime()">Get Units</button>
+<button style="width: 40%;" onclick="reloadPage()">Clear</button>
 <p id="Instructions">Click Get Current Time button to get the current time, or enter the Hours and Minutes. Press Get Units to calculate when 4 Units of service start. </p>
-<p id="Units"></p>
+<p style="width: 60%; text-align: right;" id="Units"></p>
 
 <script>
 function showtime(){
@@ -37,20 +43,34 @@ document.getElementById('Instructions').hidden=true;
 var x=parseInt(document.getElementById('starttime1').value);
 var y=parseInt(document.getElementById('starttime2').value);
 
+
+
 var Unit0,Unit1,Unit2,Unit3,Unit4;
 var d = new Date();
 d.setHours(x);
 d.setMinutes(y);
+if (d.getHours() > 12) {
+  d.setHours(d.getHours() - 12); }
+if (d.getHours() < 1) {
+  d.setHours(12); }
 
-Unit0 = 'Start :__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+Unit0 = 'Start :__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
 d.setMinutes(d.getMinutes() + 8);
-Unit1 = 'Unit 1:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+if (d.getHours() > 12) {
+  d.setHours(d.getHours() - 12); }
+Unit1 = 'Unit 1:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
 d.setMinutes(d.getMinutes() + 15);
-Unit2 = 'Unit 2:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+if (d.getHours() > 12) {
+  d.setHours(d.getHours() - 12); }
+Unit2 = 'Unit 2:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
 d.setMinutes(d.getMinutes() + 15);
-Unit3 = 'Unit 3:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+if (d.getHours() > 12) {
+  d.setHours(d.getHours() - 12); }
+Unit3 = 'Unit 3:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
 d.setMinutes(d.getMinutes() + 15);
-Unit4 = 'Unit 4:__'+ d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+if (d.getHours() > 12) {
+  d.setHours(d.getHours() - 12); }
+Unit4 = 'Unit 4:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
 
 document.getElementById('Units').innerHTML += ('Name:');
 document.getElementById('Units').innerHTML += '<label><input type="text"></label>';
@@ -87,7 +107,7 @@ function reloadPage(){
      data-ad-client="ca-pub-1129011458103162"
      data-ad-slot="6564597282"
      data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+     data-full-width-responsive="true">🅰️</ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
