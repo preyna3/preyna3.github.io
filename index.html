@@ -121,32 +121,30 @@ function reloadPage(){
 <p>
   <py-script>
     import requests
+    # Coordinates for Penitas, TX
+    lat = 26.2334
+    lon = -98.4556
 
-# Coordinates for Penitas, TX
-lat = 26.2334
-lon = -98.4556
+    # Step 1: Get the 'gridpoint' for these coordinates
+    # The User-Agent header is required by NWS (use any email/app name)
+    headers = {'User-Agent': '(myweatherapp.com, contact@example.com)'}
+    points_url = f"https://api.weather.gov/points/{lat},{lon}"
 
-# Step 1: Get the 'gridpoint' for these coordinates
-# The User-Agent header is required by NWS (use any email/app name)
-headers = {'User-Agent': '(myweatherapp.com, contact@example.com)'}
-points_url = f"https://api.weather.gov/points/{lat},{lon}"
+    response = requests.get(points_url, headers=headers)
+    data = response.json()
 
-response = requests.get(points_url, headers=headers)
-data = response.json()
+    # Step 2: Get the forecast URL from the response
+    forecast_url = data['properties']['forecast']
 
-# Step 2: Get the forecast URL from the response
-forecast_url = data['properties']['forecast']
+    # Step 3: Get the actual weather data
+    weather_response = requests.get(forecast_url, headers=headers)
+    weather_data = weather_response.json()
 
-# Step 3: Get the actual weather data
-weather_response = requests.get(forecast_url, headers=headers)
-weather_data = weather_response.json()
-
-# Print the first forecast period (usually 'Today' or 'Tonight')
-current_period = weather_data['properties']['periods'][0]
-print(f"Forecast for {current_period['name']} in Penitas, TX:")
-print(f"Temperature: {current_period['temperature']}°{current_period['temperatureUnit']}")
-print(f"Conditions: {current_period['detailedForecast']}")
-
+    # Print the first forecast period (usually 'Today' or 'Tonight')
+    current_period = weather_data['properties']['periods'][0]
+    print(f"Forecast for {current_period['name']} in Penitas, TX:")
+    print(f"Temperature: {current_period['temperature']}°{current_period['temperatureUnit']}")
+    print(f"Conditions: {current_period['detailedForecast']}")
   </py-script>
 </p>
 </body>
