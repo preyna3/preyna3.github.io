@@ -127,11 +127,7 @@ function reloadPage(){
             const url2 = "https://api.api-ninjas.com/v2/quoteoftheday";
 
         // Fetch data from the API
-        fetch(url, {
-  headers: {
-    'x-api-key': 'kMqLV35hQ9zRXjvzYu1bWAYBx5sbRvPclNlJGk7G'
-  }
-})
+        fetch(url)
             .then(response => response.json())
             .then(data => {
                 const weather = data.current_weather;
@@ -146,7 +142,11 @@ function reloadPage(){
 
             // Using a CORS proxy because some APIs block direct browser requests
         // Fetch data from the API
-        fetch(url2)
+        fetch(url2, {
+  headers: {
+    'x-api-key': 'kMqLV35hQ9zRXjvzYu1bWAYBx5sbRvPclNlJGk7G'
+          } 
+                    })
             .then(response1 => response1.json())
             .then(data1 => {
                 const quoteData = data1[0];
