@@ -59,7 +59,10 @@ Calculator
         <p id="quote">"Fetching an inspiring quote..."</p>
         <p id="author"></p>
     </div>
-  
+  <div class="quote-container">
+<script src="https://wordsmith.org/words/quote.js" type="text/javascript">
+</script> 
+  </div>
 <script>
 function showtime(){
 document.getElementById('Instructions').hidden=true;
@@ -135,13 +138,13 @@ function reloadPage(){
                 console.error('Error fetching weather:', error);
                 document.getElementById('temp').innerText = 'Failed to load weather.';
             });
-    async function getQuote() {
+async function getQuote() {
             // Using a CORS proxy because some APIs block direct browser requests
             const url2 = "https://corsproxy.io";
 
             try {
-                const response = await fetch(url2);
-                const data2 = await response.json();
+                const response1 = await fetch(url2);
+                const data2 = await response1.json();
                 
                 // ZenQuotes returns an array, so we take the first item [0]
                 const quoteData = data2[0];
