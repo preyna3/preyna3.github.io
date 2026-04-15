@@ -143,9 +143,9 @@ function reloadPage(){
             // Using a CORS proxy because some APIs block direct browser requests
         // Fetch data from the API
         fetch(url2)
-            .then(response => response.json())
-            .then(data => {
-                const quoteData = data[0];
+            .then(response1 => response1.json())
+            .then(data1 => {
+                const quoteData = data1[0];
                 // Update the HTML with the real data
                 document.getElementById('quote').innerText =  `"${quoteData.q}"`;
                 document.getElementById('author').innerText =  `- ${quoteData.a}`;
