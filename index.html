@@ -14,6 +14,8 @@ body   {background-color: powderblue; }
 h1     {color: blue; text-align: center;}
 button {color: blue;}
 input  {text-align: right;}
+  body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .weather-card { border: 1px solid #ddd; display: inline-block; padding: 20px; border-radius: 8px; }
 </style>
 </head>
 <body>
@@ -119,33 +121,32 @@ function reloadPage(){
 </script>
 </p>
 <p>
-  <py-script>
-    import requests
-    # Coordinates for Penitas, TX
-    lat = 26.2334
-    lon = -98.4556
+    <div class="weather-card">
+        <h2>Weather in Peñitas, TX</h2>
+        <p id="temp">Loading temperature...</p>
+        <p id="wind">Loading wind speed...</p>
+    </div>
 
-    # Step 1: Get the 'gridpoint' for these coordinates
-    # The User-Agent header is required by NWS (use any email/app name)
-    headers = {'User-Agent': '(myweatherapp.com, contact@example.com)'}
-    points_url = f"https://api.weather.gov/points/{lat},{lon}"
+    <script>
+        // Coordinates for Penitas, TX
+        const lat = 26.2334;
+        const lon = -98.4556;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=fahrenheit&wind_speed_unit=mph`;
 
-    response = requests.get(points_url, headers=headers)
-    data = response.json()
-
-    # Step 2: Get the forecast URL from the response
-    forecast_url = data['properties']['forecast']
-
-    # Step 3: Get the actual weather data
-    weather_response = requests.get(forecast_url, headers=headers)
-    weather_data = weather_response.json()
-
-    # Print the first forecast period (usually 'Today' or 'Tonight')
-    current_period = weather_data['properties']['periods'][0]
-    print(f"Forecast for {current_period['name']} in Penitas, TX:")
-    print(f"Temperature: {current_period['temperature']}°{current_period['temperatureUnit']}")
-    print(f"Conditions: {current_period['detailedForecast']}")
-  </py-script>
+        // Fetch data from the API
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const weather = data.current_weather;
+                // Update the HTML with the real data
+                document.getElementById('temp').innerText = `Temperature: ${weather.temperature}°F`;
+                document.getElementById('wind').innerText = `Wind Speed: ${weather.windspeed} mph`;
+            })
+            .catch(error => {
+                console.error('Error fetching weather:', error);
+                document.getElementById('temp').innerText = 'Failed to load weather.';
+            });
+    </script>
 </p>
 </body>
 </html>
