@@ -124,10 +124,14 @@ function reloadPage(){
             const lat = 26.2334;
             const lon = -98.4556;
             const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=fahrenheit&wind_speed_unit=mph`;
-            const url2 = "https://api.api-ninjas.com/v2/randomquotes?categories=success,wisdom";
+            const url2 = "https://api.api-ninjas.com/v2/quoteoftheday";
 
         // Fetch data from the API
-        fetch(url)
+        fetch(url, {
+  headers: {
+    'x-api-key': 'kMqLV35hQ9zRXjvzYu1bWAYBx5sbRvPclNlJGk7G'
+  }
+})
             .then(response => response.json())
             .then(data => {
                 const weather = data.current_weather;
