@@ -91,19 +91,19 @@ Unit0 = 'Start :__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinute
 d.setMinutes(d.getMinutes() + 8);
 if (d.getHours() > 12) {
   d.setHours(d.getHours() - 12); }
-Unit1 = '| Unit 1:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
+Unit1 = '<br>| U1:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
 d.setMinutes(d.getMinutes() + 15);
 if (d.getHours() > 12) {
   d.setHours(d.getHours() - 12); }
-Unit2 = '| U2:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
+Unit2 = '<br>| U2:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
 d.setMinutes(d.getMinutes() + 15);
 if (d.getHours() > 12) {
   d.setHours(d.getHours() - 12); }
-Unit3 = '| U3:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
+Unit3 = '<br>| U3:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
 d.setMinutes(d.getMinutes() + 15);
 if (d.getHours() > 12) {
   d.setHours(d.getHours() - 12); }
-Unit4 = '| U4:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+Unit4 = '<br>| U4:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
 
 document.getElementById('Units').innerHTML += ('~~~~~~~~~~~~ <br>Name:' + Name);
 document.getElementById('Units').innerHTML += ('<br>');
