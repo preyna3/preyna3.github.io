@@ -39,10 +39,11 @@ Calculator
 <div class="card">
 <button style="width: 80%;" onclick="CurrentTime()">Get Current Time</button>
 <br>
-<p style="text-align=left;">
-<input style="width: 30%;" min=1 max=12 type="number" id="starttime1"/>   Hours    
+<input style="width: 80%;" type="text" id="PtName"/>  Name
 <br>
-<input style="width: 30%;" min=0 max=60 type="number" id="starttime2"/>    Minutes
+  <p style="text-align=left;">
+<input style="width: 30%;" min=1 max=12 type="number" id="starttime1"/> :
+<input style="width: 30%;" min=0 max=60 type="number" id="starttime2"/> Time
 <br>
 </p>
 
@@ -73,6 +74,7 @@ function showtime(){
 document.getElementById('Instructions').hidden=true;
 var x=parseInt(document.getElementById('starttime1').value);
 var y=parseInt(document.getElementById('starttime2').value);
+var Name=document.getElementById('PtName').value;
 
 
 
@@ -103,8 +105,7 @@ if (d.getHours() > 12) {
   d.setHours(d.getHours() - 12); }
 Unit4 = 'Unit 4:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
 
-document.getElementById('Units').innerHTML += ('Name:');
-document.getElementById('Units').innerHTML += '<label><input type="text"></label>';
+document.getElementById('Units').innerHTML += ('Name:' + Name);
 document.getElementById('Units').innerHTML += ('<br>');
 document.getElementById("Units").innerHTML += Unit0 + Unit1 + Unit2 + Unit3 + Unit4;
 
