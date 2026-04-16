@@ -87,25 +87,25 @@ if (d.getHours() > 12) {
 if (d.getHours() < 1) {
   d.setHours(12); }
 
-Unit0 = 'Start :__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+Unit0 = 'Start :__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
 d.setMinutes(d.getMinutes() + 8);
 if (d.getHours() > 12) {
   d.setHours(d.getHours() - 12); }
-Unit1 = 'Unit 1:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+Unit1 = '| Unit 1:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
 d.setMinutes(d.getMinutes() + 15);
 if (d.getHours() > 12) {
   d.setHours(d.getHours() - 12); }
-Unit2 = 'Unit 2:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+Unit2 = '| U2:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
 d.setMinutes(d.getMinutes() + 15);
 if (d.getHours() > 12) {
   d.setHours(d.getHours() - 12); }
-Unit3 = 'Unit 3:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+Unit3 = '| U3:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes();
 d.setMinutes(d.getMinutes() + 15);
 if (d.getHours() > 12) {
   d.setHours(d.getHours() - 12); }
-Unit4 = 'Unit 4:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
+Unit4 = '| U4:__'+((d.getHours()<10)?"_":"") + d.getHours() +':'+((d.getMinutes()<10)?"0":"") +d.getMinutes() + '<br>';
 
-document.getElementById('Units').innerHTML += ('Name:' + Name);
+document.getElementById('Units').innerHTML += ('~~~~~~~~~~~~ <br>Name:' + Name);
 document.getElementById('Units').innerHTML += ('<br>');
 document.getElementById("Units").innerHTML += Unit0 + Unit1 + Unit2 + Unit3 + Unit4;
 
